@@ -3,7 +3,6 @@ require_once ('database.php');
 class session {
 	public $username;
 	private $logged_in = false;
-
 	 public function start_session() {
 		session_start();
 		$this->login_true();
@@ -16,9 +15,17 @@ class session {
 		$db = new Db_connect();
 		$email = $_POST['email'];
 		$password = $_POST['password'];
-        $user = $db->My_query("SELECT * FROM users WHERE email='$email' AND password =sha1('$password') LIMIT 1");
+		$remember = $_POST['rememberme'];
+		// die(var_dump($remember));
+        $user = $db->My_query("SELECT * FROM users WHERE email='$email' LIMIT 1");
         if (Db_connect::num_rows($user) == 1) {
-            $_SESSION['username'] = $email;
+					if ($remember == "no") {
+						setcookie("username", $email, time()+7200);
+					}elseif ($remember == "") {
+						$_SESSION['username'] = $email;
+					}
+	}else{
+		die("Username or password is not correct");
 	}
 }
 	public function logout() {
@@ -28,8 +35,10 @@ class session {
 	}
 	private function login_true() {
 		if (isset($_SESSION['username'])){
-			$this->username = $_SESSION['username'];
-			$this->logged_in = true;
+			if (isset($_COOKIE['username'])) {
+			  $this->username = $_SESSION['username'];
+				$this->logged_in = true;
+			}
 		}else{
 			$this->logged_in = false;
 		}

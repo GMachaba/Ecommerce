@@ -20,7 +20,7 @@ if (isset($_POST['submit'])) {
 <?php include ('config/css.php');?>
 </head>
 <body>
-	
+
 	<div class="row">
 		<div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
 			<div class="login-panel panel panel-default">
@@ -36,26 +36,26 @@ if (isset($_POST['submit'])) {
 									    <label for="password">Password</label>
 									    <input type="password" class="form-control" id="password" name="password" placeholder="Password" autocomplete="off">
 									  </div>
-								<!--
+
 									  <div class="checkbox">
 									    <label>
-									      <input type="checkbox"> Check me out
+									      <input type="checkbox" name="rememberme"> Remember me
 									    </label>
 									  </div>
-								-->
+
 									  <button type="submit" class="btn btn-default" name="submit">Login</button>
 									</form>
 				</div>
 			</div>
 		</div><!-- /.col-->
-	</div><!-- /.row -->	
-	
+	</div><!-- /.row -->
+
 <?php include ('config/js.php');?>
 	<script>
 		!function ($) {
-			$(document).on("click","ul.nav li.parent > a > span.icon", function(){		  
-				$(this).find('em:first').toggleClass("glyphicon-minus");	  
-			}); 
+			$(document).on("click","ul.nav li.parent > a > span.icon", function(){
+				$(this).find('em:first').toggleClass("glyphicon-minus");
+			});
 			$(".sidebar span.icon").find('em:first').addClass("glyphicon-plus");
 		}(window.jQuery);
 
@@ -65,7 +65,7 @@ if (isset($_POST['submit'])) {
 		$(window).on('resize', function () {
 		  if ($(window).width() <= 767) $('#sidebar-collapse').collapse('hide')
 		})
-	</script>	
+	</script>
 </body>
 
 </html>
