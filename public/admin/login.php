@@ -39,7 +39,7 @@ if (isset($_POST['submit'])) {
 
 									  <div class="checkbox">
 									    <label>
-									      <input type="checkbox" name="rememberme"> Remember me
+									      <input type="checkbox" name="c-checkbox"> Remember me
 									    </label>
 									  </div>
 

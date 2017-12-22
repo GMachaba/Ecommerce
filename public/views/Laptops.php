@@ -27,7 +27,7 @@
             <div class="card-footer">
              <form action="?page=cart&id=<?php echo $laptops['id'];?>" method="post">
               <div>
-            <input type="text" class="form-control" name="qa"  value="1"/>
+            <input type="number" class="form-control" name="qa"  value="1" min="1" max="<?php echo $laptops['quantity'] ?>"/>
             <input type="hidden" name="hidden_name" value="<?php echo $laptops['name'];?>"/>
             <input type="hidden" name="hidden_price" value="<?php echo $laptops['price'];?>"/>
             <input type="submit" name="cart" value="Add to cart" class="btn btn-success col-md-8" style=" margin-top: 5px;"/>

@@ -40,7 +40,7 @@
           </div>
 		  <div class="checkbox">
 		    <label>
-		      <input type="checkbox" name="remember"> Remember me
+		      <input type="checkbox" name="c-checkbox"> Remember me
 		    </label>
 		  </div>
       <div><a href="#">Forgot password?</a></div>

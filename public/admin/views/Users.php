@@ -44,12 +44,11 @@ $register->register_user();
 </div>
       	<h1 class="page-header">Registered users in our system:</h1>
 			</div>
-		</div><!--/.row-->	
+		</div><!--/.row-->
 		<div class="row">
 			<table class="table table-bordered" style="margin-left: 5px;">
   <thead>
     <tr>
-      <th>Id</th>
       <th>First Name</th>
       <th>Last Name</th>
       <th>phone number</th>
@@ -58,12 +57,11 @@ $register->register_user();
     </tr>
   </thead>
   <tbody>
-  				<?php 
+  				<?php
 				$q = new user();
 				$id =$list['id']=1;
 				foreach($q->all_users() as $list) {
 			echo '<tr>
-					<td>'.$list['id'].'</td>
 					<td>'.$list['first'].'</td>
 					<td>'.$list['last'].'</td>
 					<td>'.$list['phone']. '</td>
@@ -72,7 +70,7 @@ $register->register_user();
         <td>
             <a href="?page=edit_user&id=<?php echo $list['id'];?>" class="btn btn-info">
               <span class=" glyphicon glyphicon-pencil" aria-hidden="true"></span>
-            </a> 
+            </a>
             <a href="?page=delete_user&id=<?php echo $list['id'] ?>" class="btn btn-danger">
               <span class=" glyphicon glyphicon-trash" aria-hidden="true"></span>
             </a>
@@ -98,7 +96,7 @@ $register->register_user();
         <span aria-hidden="true">&laquo;</span>
       </a>
     </li>
-    <?php 
+    <?php
         $q = new user();
         $total = (int)count($q->all_users())/10;
         $counter = 0;

@@ -39,6 +39,9 @@
                     <?php
                     if($session->is_logged()) {
                         ?>
+                        <li class="nav-item <?php if(Db_connect::pages() == 'profile') {echo 'active'; } ?>">
+                            <a class="nav-link" href="?page=profile">profile</a>
+                        </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="?page=logout">Logout</a>
                             </li>

@@ -61,7 +61,7 @@ if (isset($_POST['submit'])){
                  <div class="form-group">
                   <label>Choose image</label>
                   <input type="file" name="file" id="file">
-                </div> 
+                </div>
             <input type="submit" class="btn btn-default" name="submit" value="submit"></input>
     </form>
       </div>
@@ -74,7 +74,6 @@ if (isset($_POST['submit'])){
 			<table class="table table-bordered"  style="margin-top: 10px; margin-left: 5px;">
   <thead>
     <tr>
-      <th>Id</th>
       <th>Name</th>
       <th>Quantity</th>
       <th>Price(Tsh)</th>
@@ -89,7 +88,7 @@ if (isset($_POST['submit'])){
     </tr>
   </thead>
   <tbody>
-  				<?php 
+  				<?php
 				$q = new product();
 				$id =$list['id'];
 				foreach ($q->all_products() as $list) {
@@ -99,7 +98,6 @@ if (isset($_POST['submit'])){
             $list['status']="Available";
           }
 			echo '<tr>
-					<td>'.$list['id'].'</td>
 					<td>'.$list['name'].'</td>
 					<td>'.$list['quantity'].'</td>
 					<td>'.$list['price'].'</td>
@@ -107,7 +105,7 @@ if (isset($_POST['submit'])){
       ?>
           <td>
             <img src="uploads/<?php echo $list['images'];?>" style="width:50px;height:30px;" alt="No Image" />
-          </td>          
+          </td>
           <td><?php echo $list['memory'];?></td>
           <td><?php echo $list['Ram'];?></td>
           <td><?php echo $list['processor'];?></td>
@@ -116,7 +114,7 @@ if (isset($_POST['submit'])){
           <td>
             <a href="?page=edit&id=<?php echo $list['id'];?>" class="btn btn-info">
               <span class=" glyphicon glyphicon-pencil" aria-hidden="true"></span>
-            </a> 
+            </a>
             <a href="?page=delete&id=<?php echo $list['id'];?>" class="btn btn-danger">
               <span class=" glyphicon glyphicon-trash" aria-hidden="true"></span>
             </a>
@@ -152,7 +150,7 @@ if (isset($_POST['submit'])){
         <?php
         $counter++;
       }
-    ?>    
+    ?>
     <li>
        <a href="index.php?page=Products&offset=<?php echo $_GET['offset'] + 10;?>" aria-label="Next">
         <span aria-hidden="true">&raquo;</span>

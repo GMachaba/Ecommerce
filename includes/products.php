@@ -1,5 +1,6 @@
 <?php
 require_once ('database.php');
+require_once ('cart.php');
 class product {
 	public function all_products() {
     if (isset($_GET['offset'])) {
@@ -56,7 +57,12 @@ class product {
 	}
 	public function search_product() {
 		$data = new Db_connect();
-		$searchq = strtolower(htmlentities($_POST['engine']));
+		if (isset($_POST['engine'])) {
+			$searchq = strtolower(htmlentities($_POST['engine']));
+		}else{
+			$searchq = "";
+		}
+
 		$query = $data->My_query("SELECT * FROM products WHERE lower(name) LIKE '%".$searchq."%'");
 		$product = array();
 		while ($me = $data->fetch_array($query)) {
@@ -148,7 +154,6 @@ class product {
 			}else{
 				echo "error on deleting";
 			}
-
 		}
 }
  ?>

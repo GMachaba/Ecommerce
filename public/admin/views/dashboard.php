@@ -80,13 +80,13 @@
 		    	 	<td><?php echo $x['payment_method']; ?></td>
 		    	 	</tr>
 		    	 	<?php
-		    	 } 
+		    	 }
 		    	 ?>
 		    </tbody>
 		  </table>
 			</div>
 		</div>
 		</div>
-</div>																
-</div>					
+</div>
+</div>
 </div>
