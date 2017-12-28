@@ -27,6 +27,9 @@ define('DB_NAME','designing');
  	public function num_rows($query) {
  		return mysqli_num_rows($query);
  	}
+  public function escape_string($string) {
+    return mysqli_real_escape_string($this->connect,$string);
+  }
  	public static function pages() {
  		if (isset($_GET['page'])) {
  			$titles = $_GET['page'];

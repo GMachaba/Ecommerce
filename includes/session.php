@@ -15,10 +15,9 @@ class session {
 		$db = new Db_connect();
 		$email = $_POST['email'];
 		$password = $_POST['password'];
-        $user = $db->My_query("SELECT * FROM users WHERE email='$email' LIMIT 1");
+        $user = $db->My_query("SELECT * FROM users WHERE email='$email' AND password=sha1('$password') LIMIT 1");
         if (Db_connect::num_rows($user) == 1) {
 					if (isset($_POST['c-checkbox'])) {
-						// $_COOKIE['username'] = $email;
 						setcookie("username",$email, time()+7200);
 					}else {
 						$_SESSION['username'] = $email;
@@ -50,13 +49,7 @@ class session {
 	}
 	public function profile() {
 		$data = new Db_connect();
-		if(isset($_SESSION['username'])){
-			$email = $_SESSION['username'];
-		}else if($_COOKIE['username']){
-			$email = $_COOKIE['username'];
-		}
-
-		$query = $data->My_query("SELECT * FROM users WHERE email = '$email'");
+		$query = $data->My_query("SELECT * FROM users WHERE email = '$this->username'");
 		$user = array();
 		while ($me = $data->fetch_array($query)) {
 			$user[] = $me;
